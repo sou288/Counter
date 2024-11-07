@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    color: black;
+    background: url(../images/background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 70%;
+    justify-content: center;
+    align-content: center;
+}
+
+.heading{
+    font-family: "Signika Negative", sans-serif;
+    font-size: 60px;
+    text-align: center;
+    letter-spacing: 6px;
+    word-spacing: 6px;
+    margin-bottom: 70px;
+}
+.description{
+    font-family: "Signika Negative", sans-serif;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-family: Lucida Sans;
+}
+.timer{
+    font-family: "Signika Negative", sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.sub_timer{
+    font-family: "Signika Negative", sans-serif;
+    width: 220px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.digit{
+    font-family: "Signika Negative", sans-serif;
+    font-weight: lighter;
+    font-size: 70px;
+    text-align: center;
+    padding: 2.5rem 0;
+}
+.digit_name{
+    font-family: "Signika Negative", sans-serif;
+    color: #000;
+    background: #fff;
+    text-align: center;
+    padding: 0.6rem 0;
+    font-size: 20px;
+}
+
+
+.balloon {
+    position: absolute;
+    bottom: -50px;
+    width: 50px;
+    height: 80px;
+    background-color: #FF6347;
+    border-radius: 50%;
+    animation: floatBalloon 5s ease-in forwards;
+}
+
+@keyframes floatBalloon {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}

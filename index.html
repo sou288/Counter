@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Down</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mooli&family=Playwrite+DK+Loopet:wght@100..400&family=Signika+Negative:wght@300..700&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mooli&family=Playwrite+DK+Loopet:wght@100..400&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1 class="heading">Count Down To Your Birthday!</h1>
+        <p class="description"></p>
+
+        <div class="timer">
+            <div class="sub_timer">
+                <h1 id="day" class="digit">00</h1>
+                <p class="digit_name">Days</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="hour" class="digit">00</h1>
+                <p class="digit_name">Hours</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="min" class="digit">00</h1>
+                <p class="digit_name">Minutes</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="sec" class="digit">00</h1>
+                <p class="digit_name">Seconds</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+      var target_mili_sec = new Date("Nov 7, 2024 18:28:00").getTime();
+
+    function timer() {
+        var now_mili_sec = new Date().getTime();
+        var remaining_sec = Math.floor((target_mili_sec - now_mili_sec) / 1000);
+
+        var day = Math.floor(remaining_sec / (3600 * 24));
+        var hour = Math.floor((remaining_sec % (3600 * 24)) / 3600);
+        var min = Math.floor((remaining_sec % 3600) / 60);
+        var sec = Math.floor(remaining_sec % 60);
+
+        document.querySelector("#day").innerHTML = day;
+        document.querySelector("#hour").innerHTML = hour;
+        document.querySelector("#min").innerHTML = min;
+        document.querySelector("#sec").innerHTML = sec;
+
+        if (remaining_sec <= 0) {
+            clearInterval(timerInterval);
+            showBalloons();
+        }
+    }
+
+    var timerInterval = setInterval(timer, 1000);
+
+    function showBalloons() {
+        for (let i = 0; i < 300; i++) {
+            var balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            document.body.appendChild(balloon);
+
+            balloon.style.left = `${Math.random() * 100}vw`;
+            balloon.style.animation = `floatBalloon ${Math.random() * 3 + 3}s ease-in forwards`;
+        }
+    }
+
+    </script>
+</body>
+</html>
